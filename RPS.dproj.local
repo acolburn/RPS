@@ -5,10 +5,10 @@
     <Transaction>2017/10/12 11:00:55.000.634,C:\Users\000009462\Documents\Embarcadero\Studio\Projects\MainU.pas=C:\Users\000009462\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2017/10/12 11:00:55.000.634,C:\Users\000009462\Documents\Embarcadero\Studio\Projects\MainU.fmx=C:\Users\000009462\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
     <Transaction>2017/10/12 11:01:03.000.796,C:\Users\000009462\Documents\Embarcadero\Studio\Projects\RPS\RPS.dproj=C:\Users\000009462\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
-    <Transaction>2017/10/31 09:01:21.201,=C:\Users\000009462\Documents\Embarcadero\Studio\Projects\RPS\Unit1.pas</Transaction>
-    <Transaction>2017/10/31 09:01:37.888,C:\Users\000009462\Documents\Embarcadero\Studio\Projects\RPS\GameU.pas=C:\Users\000009462\Documents\Embarcadero\Studio\Projects\RPS\Unit1.pas</Transaction>
-    <Transaction>2017/10/31 09:02:44.573,C:\Users\000009462\Documents\Embarcadero\Studio\Projects\RPS\MainU.pas=C:\Users\000009462\Documents\Embarcadero\Studio\Projects\MainU.pas</Transaction>
-    <Transaction>2017/10/31 09:02:44.573,C:\Users\000009462\Documents\Embarcadero\Studio\Projects\RPS\MainU.fmx=C:\Users\000009462\Documents\Embarcadero\Studio\Projects\MainU.fmx</Transaction>
-    <Transaction>2017/10/31 09:03:00.476,C:\Users\000009462\Documents\Embarcadero\Studio\Projects\RPS\RPS.dproj=C:\Users\000009462\Documents\Embarcadero\Studio\Projects\RPS\RPS.dproj</Transaction>
+    <Transaction>2017/10/31 09:01:21.000.201,=C:\Users\000009462\Documents\Embarcadero\Studio\Projects\RPS\Unit1.pas</Transaction>
+    <Transaction>2017/10/31 09:01:37.000.888,C:\Users\000009462\Documents\Embarcadero\Studio\Projects\RPS\GameU.pas=C:\Users\000009462\Documents\Embarcadero\Studio\Projects\RPS\Unit1.pas</Transaction>
+    <Transaction>2017/10/31 09:02:44.000.573,C:\Users\000009462\Documents\Embarcadero\Studio\Projects\RPS\MainU.pas=C:\Users\000009462\Documents\Embarcadero\Studio\Projects\MainU.pas</Transaction>
+    <Transaction>2017/10/31 09:02:44.000.573,C:\Users\000009462\Documents\Embarcadero\Studio\Projects\RPS\MainU.fmx=C:\Users\000009462\Documents\Embarcadero\Studio\Projects\MainU.fmx</Transaction>
+    <Transaction>2017/10/31 09:03:00.000.476,C:\Users\000009462\Documents\Embarcadero\Studio\Projects\RPS\RPS.dproj=C:\Users\000009462\Documents\Embarcadero\Studio\Projects\RPS\RPS.dproj</Transaction>
   </Transactions>
 </BorlandProject>

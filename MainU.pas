@@ -9,6 +9,8 @@ uses
   GameU;
 
 type
+  //TMove=(rock,paper,scissors);
+
   TForm1 = class(TForm)
     ImageRock: TImage;
     ImagePaper: TImage;
@@ -32,10 +34,7 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
-    function ComputerTurn:integer;
-    procedure ComputerWins;
-    procedure PlayerWins;
-    procedure Tie;
+    procedure UpdateDisplay;
   public
     { Public declarations }
     game: TGame;
@@ -49,24 +48,19 @@ implementation
 {$R *.fmx}
 uses Math;
 
-procedure UpdateDisplay;
+procedure TForm1.UpdateDisplay;
 begin
    EditCompWins.Text:=IntToStr(game.computer_score);
    EditPlayerWins.Text:=IntToStr(game.player_score);
    EditTie.Text:=IntToStr(game.tie_score);
+   LabelResult.Text:=game.result_message;
+   if (game.computer_move=rock) then ImageControl1.LoadFromFile('rock.gif')
+   else if (game.computer_move=paper) then ImageControl1.LoadFromFile('paper.gif')
+   else if (game.computer_move=scissors) then ImageControl1.LoadFromFile('scissors.gif')
+   else showmessage('error');
 end;
 
-function TForm1.ComputerTurn:integer;
-var
-  i:integer;
-begin
-   i:=Random(3);
-   if (i=0) then ImageControl1.LoadFromFile('rock.gif')
-   else if (i=1) then ImageControl1.LoadFromFile('paper.gif')
-   else if (i=2) then ImageControl1.LoadFromFile('scissors.gif')
-   else showmessage('error');
-   result := i;
-end;
+
 
 procedure TForm1.FormClose(Sender: TObject; var Action: TCloseAction);
 var
@@ -84,6 +78,7 @@ begin
    finally
      Ini.Free;
    end;
+   game.Free;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -91,7 +86,6 @@ var
   ini:TIniFile;
 begin
   game:=TGame.Create;
-  Randomize;
 
   ini := TIniFile.Create(TPath.Combine(TPath.GetDocumentsPath, 'user.dat'));
   try
@@ -105,86 +99,27 @@ begin
    finally
      Ini.Free;
    end;
+
    UpdateDisplay;
 
 end;
 
 procedure TForm1.ImagePaperClick(Sender: TObject);
-var
-  comp:integer;
 begin
-   comp:=ComputerTurn;
-   if (comp=0) then begin
-   LabelResult.Text:='Paper beats rock';
-   PlayerWins;
-   end
-   else if (comp=1) then begin
-   LabelResult.Text:='Tie';
-   Tie;
-   end
-   else if (comp=2) then begin
-   LabelResult.Text:='Scissors cut paper';
-   ComputerWins;
-   end
-   else LabelResult.Text:='error';
+  game.playerTurn(paper);
+  UpdateDisplay;
 end;
 
 procedure TForm1.ImageRockClick(Sender: TObject);
-var
-  comp:integer;
 begin
-   comp:=ComputerTurn;
-   if (comp=0) then begin
-   LabelResult.Text := 'Tie';
-   Tie;
-   end
-   else if (comp=1) then begin
-   LabelResult.Text:='Paper beats rock';
-   ComputerWins;
-   end
-   else if (comp=2) then begin
-   LabelResult.Text:='Rock beats scissors';
-   PlayerWins;
-   end
-   else LabelResult.Text:='error';
+   game.PlayerTurn(rock);
+   UpdateDisplay;
 
 end;
 
 procedure TForm1.ImageScissorsClick(Sender: TObject);
-var
-  comp:integer;
 begin
-  comp:=ComputerTurn;
-  if (comp=0) then begin
-  LabelResult.Text:='Rock beats scissors';
-  ComputerWins;
-  end
-  else if (comp=1) then begin
-  LabelResult.Text:='Scissors cut paper';
-  PlayerWins;
-  end
-  else if (comp=2) then begin
-  LabelResult.Text:='Tie';
-  Tie;
-  end
-  else LabelResult.Text:='error';
-end;
-
-procedure TForm1.ComputerWins;
-begin
-  game.computer_score:=game.computer_score+1;
-  UpdateDisplay;
-end;
-
-procedure TForm1.PlayerWins;
-begin
-  game.player_score:=game.player_score+1;
-  UpdateDisplay;
-end;
-
-procedure TForm1.Tie;
-begin
-  game.tie_score:=game.tie_score+1;
+  game.PlayerTurn(scissors);
   UpdateDisplay;
 end;
 
